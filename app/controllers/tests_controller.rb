@@ -1,6 +1,6 @@
 class TestsController < ApplicationController
   def index
-    p form_authenticity_token
+    # p form_authenticity_token
     @tests = Test.all
     render json: {tests: @tests}
   end
@@ -18,6 +18,7 @@ class TestsController < ApplicationController
   private
   def test_params
     p params
+    p params.class
     params.require(:test).permit(:testing_1, :testing_2, :testing_3)
   end
 end
