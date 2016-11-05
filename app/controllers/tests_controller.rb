@@ -19,6 +19,11 @@ class TestsController < ApplicationController
   def test_params
     p params
     p params.class
-    params.require(:test).permit(:testing_1, :testing_2, :testing_3)
+    JSON
+      .parse(params.require(:test))
+      .with_indifferent_access
+      .slice(:testing_1, :testing_2)
+
+    # .permit(:testing_1, :testing_2, :testing_3)
   end
 end
