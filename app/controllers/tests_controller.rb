@@ -1,5 +1,6 @@
 class TestsController < ApplicationController
   def index
+    p form_authenticity_token
     @tests = Test.all
     render json: {tests: @tests}
   end
