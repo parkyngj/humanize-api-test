@@ -13,6 +13,7 @@ class TestsController < ApplicationController
   def create
     @test = Test.new(test_params)
     @test.save
+    render nothing: true, status: :ok
   end
 
   private
